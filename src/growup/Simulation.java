@@ -10,8 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import static java.awt.event.KeyEvent.VK_SPACE;
@@ -510,7 +508,8 @@ public class Simulation implements KeyListener
         int prev = 1;
         int act = 1;
 
-        try {
+        try
+        {
             BufferedWriter out = new BufferedWriter(new FileWriter("../RozrostZiaren_v1/ExportMCCA.txt"));
 
             out.write(String.valueOf(width) + " " + String.valueOf(height));
@@ -535,7 +534,7 @@ public class Simulation implements KeyListener
 
 
     //energyDistribution
-    public void energyDistribution (int type)
+    public void energyDistribution(int type)
     {
         //type = 1 = homogenous
         //type = 2 = heterogenous
@@ -549,7 +548,7 @@ public class Simulation implements KeyListener
             {
                 for (int j = 0; j < height; j++)
                 {
-                    cells[i][j].color = new Color(47,141,255);
+                    cells[i][j].color = new Color(47, 141, 255);
                     cells[i][j].H = 5;
                 }
             }
@@ -559,32 +558,31 @@ public class Simulation implements KeyListener
             //checkBorders();
             for (int i = 0; i < width; i++)
             {
-                for (int j = 0; j < height-1; j++)
+                for (int j = 0; j < height - 1; j++)
                 {
-                    if(i == width-1 && (!cells[i][j].color.equals(cells[0][j].color)))
+                    if (i == width - 1 && (!cells[i][j].color.equals(cells[0][j].color)))
                     {
-                        cells[i][j].color = new Color(18,247,41);
+                        cells[i][j].color = new Color(18, 247, 41);
                         cells[i][j].H = 5;
                     }
                     else
                     {
-                        if(!cells[i][j].color.equals(cells[i][j+1].color))
+                        if (!cells[i][j].color.equals(cells[i][j + 1].color))
                         {
-                            cells[i][j].color = new Color(18,247,41);
+                            cells[i][j].color = new Color(18, 247, 41);
                             cells[i][j].H = 5;
                         }
-                        else if(!cells[i][j].color.equals(cells[i+1][j].color))
+                        else if (!cells[i][j].color.equals(cells[i + 1][j].color))
                         {
-                            cells[i][j].color = new Color(18,247,41);
+                            cells[i][j].color = new Color(18, 247, 41);
                             cells[i][j].H = 5;
                         }
                         else
                         {
-                            cells[i][j].color = new Color(47,141,255);
+                            cells[i][j].color = new Color(47, 141, 255);
                             cells[i][j].H = 2;
                         }
                     }
-
 
 
 //                    if (cells[i][j].border == true)
@@ -609,7 +607,7 @@ public class Simulation implements KeyListener
     {
         Random generator = new Random();
 
-        for (int i=0; i<numberOfNewNucleons; i++)
+        for (int i = 0; i < numberOfNewNucleons; i++)
         {
             int rand_i = generator.nextInt(width);
             int rand_j = generator.nextInt(height);

@@ -87,7 +87,6 @@ public class Frame extends JFrame
     //------------------
 
 
-
     private class Screen extends JLabel
     {
         @Override
